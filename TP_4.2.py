@@ -10,16 +10,7 @@
 #-------------------------------------------------------------------------------
 # -*- coding: utf-8 -*-
 #!/usr/bin/python
-affichage = {
-1:{"Nom": "Nom", "Prix":"Prix", "Quantité": "Quantité", "Total HT":"Total HT"}
-}
 
-listProduit={
-1:{"nom":"banane", "prix": 4},
-2:{"nom":"Pomme","prix":2},
-3:{"nom":"Orange", "prix":1.5},
-4:{"nom":"Poire","prix":3}
-}
 
 def affichageCout(totalAchat):
     if(totalAchat>200):
@@ -71,14 +62,25 @@ def saisieRefArticle(listProduit):
             print("Veuillez entrer une référence correct")
     return(ref)
 
-autreProduit="O"
+
+
+
+affichage = {
+1:{"Nom": "Nom", "Prix":"Prix", "Quantité": "Quantité", "Total HT":"Total HT"}
+}
+
+listProduit={
+1:{"nom":"banane", "prix": 4},
+2:{"nom":"Pomme","prix":2},
+3:{"nom":"Orange", "prix":1.5},
+4:{"nom":"Poire","prix":3}
+}
+autreProduit="o"
 totalAchat=0
 compt=1
-
 while(autreProduit=="o"):
     compt=compt+1
     prix=0
-
     ref=saisieRefArticle(listProduit)
     prix = ref["prix"]
     nb=saisieNombreArticle()
