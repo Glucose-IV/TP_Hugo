@@ -28,10 +28,14 @@ compt=1
 while(autreProduit=="O"):
     compt=compt+1
     prix=0
+    produitSelect=5
 
-    while(prix==0):
+    while produitSelect>=5 or produitSelect<0 :
         print("Veuillez entrer la référence du produit : ", end=" ")
-        produitSelect = input()
+        try:
+            produitSelect = int(input())
+        except ValueError:
+            print("Veuillez entrer un nombre")
 
         if(int(produitSelect) in listProduit.keys()):
             ref=listProduit[int(produitSelect)]
@@ -43,8 +47,11 @@ while(autreProduit=="O"):
 
     while (nb<=0):
         print("Veuillez entrer le nombre de produit : ", end=" ")
-        nbIn = input()
-        nb = int(nbIn)
+
+        try:
+            nb = int(input())
+        except ValueError:
+            print("Veuillez entrer un nombre")
 
         if(nb<=0):
             print("le nombre de produit ne peux pas être égal ou inférieur à 0")
@@ -65,13 +72,13 @@ for ligne in affichage:
 montantreduc=0
 
 if(totalAchat>200):
-    print("Sous-Total = " + str(totalAchat))
-    print("Réduction 5% : " + str(totalAchat*0.05))
-    print("Total HT = " + str(totalAchat*0.95))
-    print("TTC = " + str(totalAchat*1.20))
+    print("Sous-Total = " + str(round(totalAchat,2)))
+    print("Réduction 5% : " + str(round((totalAchat*0.05),2)))
+    print("Total HT = " + str(round((totalAchat*0.95),2)))
+    print("TTC = " + str(round((totalAchat*1.20),2)))
 else:
-    print("Total HT = " + str(totalAchat))
-    print("TTC = " + str(totalAchat*1.20))
+    print("Total HT = " + str(round(totalAchat,2)))
+    print("TTC = " + str(round((totalAchat*1.20),2)))
 
 
 
